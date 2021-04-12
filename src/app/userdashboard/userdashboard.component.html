@@ -1,0 +1,55 @@
+<div>
+    <h5 class="text-center" style="background-color: rgb(0, 204, 255);">WELCOME {{username}}</h5>
+    <button class="btn btn-secondary float-end" (click)="userLogout()">logout</button>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-3 col-sm-2"></div>
+    <div class="col-md-6 col-sm-8 mt-5">
+        <form  #formRef="ngForm" (ngSubmit)="onSubmit(formRef)" >
+            <div class="form-group">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" id="date" name="date" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="inputtext" class="form-label">Enter Activity</label>
+                <input type="text" class="form-control" id="inputtext" name="activity" ngModel>
+            </div>          
+          
+        
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary mt-3" style="margin: auto;">Add-Activity</button>
+            </div>
+        </form>
+        
+    </div>
+    <div class="col-md-3 col-sm-2"></div>
+</div>
+
+<div class="container">
+ <div class="row mt-5">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <table class="table-bordered text-center" style="width: 100%; margin: auto; border: 1px  black; margin-top: 100px;">
+            <thead>
+                <th>NAME</th>
+                <th>DATE</th>
+                <th>ACTIVITY</th>
+                <th></th>
+            </thead>
+            <tr *ngFor="let obj of object">
+                <td>{{obj.username}}</td>
+                <td>{{obj.date}}</td>
+                <td>{{obj.activity}}</td> 
+                <button  class="btn btn-danger" (click)=onDelete()>X</button> 
+            </tr>
+        </table>
+        
+    </div>
+    <div class="col-3"></div>
+    </div> 
+</div>
+ 
+  
+
+

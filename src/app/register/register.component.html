@@ -1,0 +1,47 @@
+<div class="container">         
+    <p class="display-6 text-secondary text-center mt-3">User registration form</p>
+
+    <form class="row g-3 mt-5 bg-light p-3" #formRef="ngForm" (ngSubmit)="formRef.form.valid&&onSubmit(formRef)">
+        <!--name  -->
+        <div class="col-md-6">
+            <label for="inputname4" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputname4" name="name" ngModel required #name="ngModel">
+            <!-- validation for name -->
+            <span class="text-danger" *ngIf="(name.touched || formRef.submitted) && name.errors?.required">
+                Name is required
+            </span>
+        </div>
+
+      <!-- username -->
+        <div class="col-12">
+            <label for="inputUsername" class="form-label">Username</label>
+            <input type="text" class="form-control" style="width: 50%;" id="inputUsername" name="username" ngModel required #username="ngModel">
+            <!-- validation for username -->
+             <span class="text-danger" *ngIf="(username.touched || formRef.submitted) && username.errors?.required">
+               Username is required
+             </span>
+        </div>
+            
+    
+        <!-- password -->
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" name="password" ngModel required
+                #password="ngModel">
+            <!-- validation for password -->
+            <span class="text-danger" *ngIf="(password.touched || formRef.submitted) && password.errors?.required">
+                Password is required
+            </span>
+        </div>
+    
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary float-center">Register</button>
+        </div>
+    </form>
+    <div class="text-center mt-5">
+        <h5 style="color: deepskyblue;">Already a Member Click below Button to Login</h5>
+        <button class="btn btn-success mt-2" (click)="signup()">SIGN-UP</button>
+    </div>
+    
+
+</div>
